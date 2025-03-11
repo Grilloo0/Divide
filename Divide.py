@@ -5,22 +5,22 @@ def divide(a, b):
     if b == 0:
         return "Error: División por 0 no permitida"
 
-    negative = (a < 0) != (b < 0)  # Determina si el resultado es negativo
-    a, b = abs(a), abs(b)  # Trabajamos con valores absolutos
+    negative = (a < 0) != (b < 0)  
+    a, b = abs(a), abs(b)  
 
     quotient = 0
     while a >= b:
         temp, multiple = b, 1
-        while a >= (temp << 1):  # Multiplicamos temp por 2 hasta que sea mayor a a
+        while a >= (temp << 1):
             temp <<= 1
             multiple <<= 1
-        a -= temp  # Restamos el múltiplo más grande posible
-        quotient += multiple  # Sumamos cuántas veces restamos
+        a -= temp  
+        quotient += multiple  
 
-    quotient = -quotient if negative else quotient  # Aplicamos el signo
-    return max(INT_MIN, min(INT_MAX, quotient))  # Aseguramos que esté dentro del rango permitido
+    quotient = -quotient if negative else quotient  
+    return max(INT_MIN, min(INT_MAX, quotient))  
 
-# Interfaz de usuario
+# Interfaz del usuario
 while True:
     print("\nCalculadora de División (sin /, *, %)")
     try:
